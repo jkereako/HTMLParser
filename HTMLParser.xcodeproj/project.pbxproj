@@ -13,6 +13,9 @@
 		62C047861CA36A490043DC1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62C047851CA36A490043DC1A /* Assets.xcassets */; };
 		62C047891CA36A490043DC1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62C047871CA36A490043DC1A /* LaunchScreen.storyboard */; };
 		62C047941CA36A490043DC1A /* HTMLParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C047931CA36A490043DC1A /* HTMLParserTests.swift */; };
+		62C047A21CA36BAA0043DC1A /* Fuzi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C047A11CA36BAA0043DC1A /* Fuzi.framework */; };
+		62C047A51CA36BEA0043DC1A /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C047A41CA36BEA0043DC1A /* Parser.swift */; };
+		62C047A71CA36BFD0043DC1A /* hacker-news.html in Resources */ = {isa = PBXBuildFile; fileRef = 62C047A61CA36BFD0043DC1A /* hacker-news.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,9 @@
 		62C0478F1CA36A490043DC1A /* HTMLParserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HTMLParserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		62C047931CA36A490043DC1A /* HTMLParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLParserTests.swift; sourceTree = "<group>"; };
 		62C047951CA36A490043DC1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62C047A11CA36BAA0043DC1A /* Fuzi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fuzi.framework; path = Carthage/Build/iOS/Fuzi.framework; sourceTree = "<group>"; };
+		62C047A41CA36BEA0043DC1A /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		62C047A61CA36BFD0043DC1A /* hacker-news.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "hacker-news.html"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62C047A21CA36BAA0043DC1A /* Fuzi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +66,7 @@
 		62C047721CA36A480043DC1A = {
 			isa = PBXGroup;
 			children = (
+				62C047A31CA36BAE0043DC1A /* Frameworks */,
 				62C0477C1CA36A490043DC1A /* Products */,
 				62C0479F1CA36A830043DC1A /* Resources */,
 				62C0477D1CA36A490043DC1A /* Source */,
@@ -81,6 +89,7 @@
 			children = (
 				62C0477E1CA36A490043DC1A /* AppDelegate.swift */,
 				62C047801CA36A490043DC1A /* ViewController.swift */,
+				62C047A41CA36BEA0043DC1A /* Parser.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -105,11 +114,20 @@
 		62C0479F1CA36A830043DC1A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				62C047A61CA36BFD0043DC1A /* hacker-news.html */,
 				62C047851CA36A490043DC1A /* Assets.xcassets */,
 				62C047871CA36A490043DC1A /* LaunchScreen.storyboard */,
 				62C047821CA36A490043DC1A /* Main.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		62C047A31CA36BAE0043DC1A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				62C047A11CA36BAA0043DC1A /* Fuzi.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,6 +140,7 @@
 				62C047771CA36A490043DC1A /* Sources */,
 				62C047781CA36A490043DC1A /* Frameworks */,
 				62C047791CA36A490043DC1A /* Resources */,
+				62C047A01CA36B510043DC1A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -196,6 +215,7 @@
 				62C047891CA36A490043DC1A /* LaunchScreen.storyboard in Resources */,
 				62C047861CA36A490043DC1A /* Assets.xcassets in Resources */,
 				62C047841CA36A490043DC1A /* Main.storyboard in Resources */,
+				62C047A71CA36BFD0043DC1A /* hacker-news.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +228,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		62C047A01CA36B510043DC1A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Fuzi.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		62C047771CA36A490043DC1A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -215,6 +252,7 @@
 			files = (
 				62C047811CA36A490043DC1A /* ViewController.swift in Sources */,
 				62C0477F1CA36A490043DC1A /* AppDelegate.swift in Sources */,
+				62C047A51CA36BEA0043DC1A /* Parser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +385,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "$(SRCROOT)/SupportFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -359,6 +402,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "$(SRCROOT)/SupportFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

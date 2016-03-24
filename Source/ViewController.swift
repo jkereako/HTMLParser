@@ -12,14 +12,20 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+
+    if let filepath = NSBundle.mainBundle().pathForResource("hacker-news", ofType: "html") {
+      do {
+        let content = try NSString(contentsOfFile: filepath, usedEncoding: nil) as String
+        let parser = Parser(
+          xPathQuery: "//table[@id=\"hnmain\"]/tr[3]/td/table/tr[16]/td[3]/a", html: content
+        )
+
+        parser.parse()
+      } catch {
+        print(error)
+      }
+    } else {
+      fatalError("hacker-news.html not found!")
+    }
   }
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-
-
 }
-
